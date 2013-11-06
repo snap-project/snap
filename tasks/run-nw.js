@@ -1,4 +1,4 @@
-
+/* jshint node: true */
 var os = require('os');
 var path = require('path');
 var async = require('async');
@@ -14,7 +14,10 @@ module.exports = function(grunt) {
 
       var done = this.async();
 
-      var archiveNameTpl = 'node-webkit-v<%= version %>-<%= platform %>-<%= arch %><%= archiveExt %>';
+      var archiveNameTpl = 'node-webkit' +
+        '-v<%= version %>' +
+        '-<%= platform %>' +
+        '-<%= arch %><%= archiveExt %>';
       var URLTpl = '<%= downloadURL %>v<%= version %>/' + archiveNameTpl;
 
       var platform = os.platform();
@@ -112,7 +115,10 @@ module.exports = function(grunt) {
           var spawn = require('child_process').spawn;
           var nwPath = path.join(binariesDir, runnables[platform]);
 
-          grunt.log.writeln('Running "' + nwPath + ' ' + options.nwArgs.join(' ')+'"');
+          grunt.log.writeln(
+            'Running "' + nwPath + ' ' +
+            options.nwArgs.join(' ')+'"'
+          );
           var nw  = spawn(nwPath, options.nwArgs);
 
           nw.stdout.pipe(process.stdout);

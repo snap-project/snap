@@ -1,9 +1,9 @@
+/* jshint node: true */
+
 var http = require('http');
 var https = require('https');
 var fs = require('fs');
 var parse = require('url').parse;
-var sys = require('sys');
-
 
 module.exports = function(grunt) {
 
@@ -19,16 +19,16 @@ module.exports = function(grunt) {
     client.get(url, function(res) {
 
       var contentLength = res.headers['content-length'];
-      grunt.log.writeln("File size is " + contentLength + " bytes.");
-      grunt.log.writeln("Saving to " + file);
+      grunt.log.writeln('File size is ' + contentLength + ' bytes.');
+      grunt.log.writeln('Saving to ' + file);
 
       var downloaded = 0;
       res.on('data', function(chunk) {
         downloaded += chunk.length;
         var percent = (downloaded/contentLength)*100;
-        grunt.log.write('\033[0G')
+        grunt.log.write('\033[0G');
         grunt.log.write('\033[K');
-        grunt.log.write("Downloaded " + percent.toFixed(2) + "%");
+        grunt.log.write('Downloaded ' + percent.toFixed(2) + '%');
         if(downloaded >= contentLength) {
           grunt.log.writeln();
         }
@@ -40,6 +40,6 @@ module.exports = function(grunt) {
 
     });
 
-  }
+  };
 
 };

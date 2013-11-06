@@ -1,3 +1,4 @@
+/* jshint node: true */
 module.exports = function(grunt) {
   grunt.initConfig({
 
@@ -13,7 +14,7 @@ module.exports = function(grunt) {
     },
 
     jshint: {
-      files: ['src/**/*.js'],
+      files: ['src/**/*.js', 'tasks/**/*.js', 'Gruntfile.js'],
       options: {
         jshintrc: true
       }
