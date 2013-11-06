@@ -10,10 +10,18 @@ module.exports = function(grunt) {
         version: '0.8.0',
         forceDownload: false
       }
+    },
+
+    jshint: {
+      files: ['src/**/*.js'],
+      options: {
+        jshintrc: true
+      }
     }
 
   });
 
   grunt.loadTasks('tasks');
+  grunt.loadNpmTasks('grunt-contrib-jshint');
 
 };
