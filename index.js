@@ -1,3 +1,3 @@
 module.exports = {
-  Snap: require('./lib/snap');
+  Snap: require('./lib/snap')
 };

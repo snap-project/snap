@@ -16,6 +16,9 @@
     "url": "https://github.com/Bornholm/snap-lib/issues"
   },
   "dependencies": {
-    "armature": "0.0.2"
+    "armature": "0.0.2",
+    "nconf": "~0.6.8",
+    "winston": "~0.7.2",
+    "js-yaml": "~2.1.3"
   }
 }
