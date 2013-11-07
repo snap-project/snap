@@ -12,8 +12,9 @@ app.startWebServer(function(err) {
   }
 
   gui.Window.get().close();
-  var port = app.config.get('server.port');
+  var port = app.config.get('server:port');
   var windowConfig = app.config.get('window');
-  gui.Window.open('http://localhost/', windowConfig);
+  var url = 'http://localhost' + (port ? (':' + port) : '') + '/';
+  gui.Window.open(url, windowConfig);
 
 });
