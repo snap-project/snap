@@ -21,5 +21,8 @@
     "tar": "~0.1.18",
     "unzip": "~0.1.9",
     "grunt-contrib-jshint": "~0.7.1"
+  },
+  "dependencies": {
+    "snap-lib": "git://github.com/Bornholm/snap-lib.git#develop"
   }
 }
