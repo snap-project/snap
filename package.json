@@ -2,7 +2,7 @@
   "name": "snap",
   "version": "0.0.0",
   "description": "SNAP ====",
-  "main": "src/index.html",
+  "main": "src/loader.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -24,5 +24,12 @@
   },
   "dependencies": {
     "snap-lib": "git://github.com/Bornholm/snap-lib.git#develop"
+  },
+  "window": {
+    "frame": false,
+    "toolbar": false,
+    "position": "center",
+    "width": 250,
+    "height": 250
   }
 }
