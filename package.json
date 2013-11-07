@@ -1,0 +1,21 @@
+{
+  "name": "snap-lib",
+  "version": "0.0.0",
+  "description": "snap-lib ========",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Bornholm/snap-lib.git"
+  },
+  "author": "",
+  "license": "AGPL",
+  "bugs": {
+    "url": "https://github.com/Bornholm/snap-lib/issues"
+  },
+  "dependencies": {
+    "armature": "0.0.2"
+  }
+}
