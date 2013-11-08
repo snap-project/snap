@@ -1,9 +1,14 @@
 
+apps:
+  dir: apps
+  default: dummy
+
 server:
+  host: 0.0.0.0
   port: 25842
   session:
     secret: "these are not the droids you are looking for"
 
 window:
   position: center
-  toolbar: True
+  toolbar: False
