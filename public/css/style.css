@@ -18,3 +18,12 @@ html, body {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
+
+#menu-bar {
+  position: fixed;
+  bottom: 0;
+  height: 45px;
+  left: 0;
+  right: 0;
+  background-color: #333;
+}
