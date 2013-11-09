@@ -1,0 +1,15 @@
+{
+  "camelcase" : true,
+  "indent": 2,
+  "undef": true,
+  "quotmark": "single",
+  "maxlen": 80,
+  "trailing": true,
+  "curly": true,
+  "newcap": true,
+  "unused": true,
+  "trailing": true,
+  "latedef" : true,
+  "maxparams": 4,
+  "maxcomplexity": 10
+}
