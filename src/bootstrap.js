@@ -1,3 +1,4 @@
+/* jshint node: true */
 var window = global.window;
 var gui = window.nwDispatcher.requireNwGui();
 var Snap = require('snap-lib').Snap;
