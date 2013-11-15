@@ -1,0 +1,17 @@
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+  </head>
+  <body>
+    Dummy
+    <script type="text/javascript">
+      (function() {
+        window.startApp = function(sandbox) {
+          sandbox.apps.getAppsList(function(err, apps) {
+            console.log(apps);
+          });
+        };
+      }())
+    </script>
+  </body>
+</html>
