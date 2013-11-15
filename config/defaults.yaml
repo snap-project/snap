@@ -1,6 +1,6 @@
 
 apps:
-  dir: apps
+  dir: node_modules/snap-lib/apps
   default: home
 
 server:
