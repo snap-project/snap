@@ -1,7 +1,7 @@
 
 apps:
   dir: apps
-  default: dummy
+  default: home
 
 server:
   host: 0.0.0.0
