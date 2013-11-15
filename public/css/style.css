@@ -27,3 +27,15 @@ html, body {
   right: 0;
   background-color: #333;
 }
+
+#snap-title {
+  font-family: 'Droid Sans', sans-serif;
+  font-weight: bold;
+  vertical-align: center;
+  line-height: 45px;
+  margin: 0px 10px;
+  color: #999;
+  text-shadow: 1px 1px 0px #222;
+  filter: dropshadow(color=#222, offx=1, offy=1);
+  text-decoration: none;
+}
