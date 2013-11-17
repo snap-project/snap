@@ -1,12 +1,37 @@
 body {
   font-family: 'Droid Sans', sans-serif;
   color: #333;
+  /* Inspired by http://davidwalsh.name/background-animation-css */
+  background-image: url('../images/cloud-front.png'), url('../images/cloud-back.png');
+  background-position: 0 100%, 0 100%;
+  background-repeat: repeat-x, repeat-x;
+  background-color: #E1EFF3;
+  -webkit-animation: cloudsAnimation 60s linear infinite;
+  -moz-animation: cloudsAnimation 60s linear infinite;
+  animation: cloudsAnimation 60s linear infinite;
+}
+
+@-webkit-keyframes cloudsAnimation {
+  from { background-position: 0px 100%, 400px 100%; }
+  to { background-position: 800px 100%, 0px 100%; }
+}
+
+@-moz-keyframes cloudsAnimation {
+  from { background-position: 0px 100%, 400px 100%; }
+  to { background-position: 800px 100%, 0px 100%; }
+}
+
+@keyframes cloudsAnimation {
+  from { background-position: 0px 100%, 400px 100%; }
+  to { background-position: 800px 100%, 0px 100%; }
 }
 
 
 .panel {
 
   display: none;
+  box-sizing: border-box;
+  padding: 60px;
 
   -webkit-flex-direction: row;
   -moz-flex-direction: row;
@@ -32,8 +57,8 @@ body {
 }
 
 .app {
-  width: 64px;
-  height: 74px;
+  width: 48px;
+  height: 64px;
   margin: 20px;
   text-align: center;
   cursor: pointer;
@@ -41,8 +66,8 @@ body {
 
 .app > .label {
   display: block;
-  font-size: 14px;
-  width: 64px;
+  font-size: 12px;
+  width: 48px;
   margin-top: 5px;
   font-weight: bold;
   text-shadow: 1px 1px 0px #ffffff;
@@ -54,11 +79,11 @@ body {
 }
 
 .app > .icon {
-  width: 64px;
-  height: 64px;
+  width: 48px;
+  height: 48px;
   border-radius: 10px;
-  -webkit-box-shadow: 0px 0px 6px 2px rgba(33, 33, 33, 0.5);
-  box-shadow: 0px 0px 6px 2px rgba(33, 33, 33, 0.5);
+  -webkit-box-shadow: 0px 0px 8px 2px rgba(33, 33, 33, 0.5);
+  box-shadow: 0px 0px 8px 2px rgba(33, 33, 33, 0.5);
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center center;

@@ -4,7 +4,8 @@
   "description": "snap-lib ========",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node_modules/nodeunit/bin/nodeunit test",
+    "install": "bower install"
   },
   "repository": {
     "type": "git",
@@ -17,7 +18,8 @@
   },
   "devDependencies": {
     "grunt": "0.4.1",
-    "grunt-contrib-jshint": "~0.7.1"
+    "grunt-contrib-jshint": "~0.7.1",
+    "nodeunit": "~0.8.2"
   },
   "dependencies": {
     "armature": "0.0.2",
