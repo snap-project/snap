@@ -10,6 +10,14 @@
           sandbox.apps.getAppsList(function(err, apps) {
             console.log(apps);
           });
+
+          sandbox.system.getNetworkAddresses(function(err, adresses) {
+            console.log(err, adresses);
+          });
+
+          sandbox.system.getServerExternalURL(function(err, URL) {
+            console.log(err, URL);
+          });
         };
       }())
     </script>
