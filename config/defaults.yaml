@@ -1,6 +1,6 @@
 
 apps:
-  dir: node_modules/snap-lib/apps
+  dir: ./node_modules/snap-lib/apps
   default: home
 
 server:
@@ -12,3 +12,7 @@ server:
 window:
   position: center
   toolbar: False
+
+data:
+  autocreate: True
+  dir: ./data
