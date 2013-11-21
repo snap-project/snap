@@ -1,25 +1,22 @@
 <html>
   <head>
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>Snap Services Tests</title>
+    <link rel="stylesheet" href="nodeunit.css" type="text/css" />
+    <script src="nodeunit.min.js"></script>
+    <!-- Suites -->
+    <script src="suites/apps.js"></script>
+    <script src="suites/users.js"></script>
   </head>
   <body>
-    Dummy
-    <script type="text/javascript">
-      (function() {
-        window.startApp = function(sandbox) {
-          sandbox.apps.getAppsList(function(err, apps) {
-            console.log(apps);
-          });
-
-          sandbox.system.getNetworkAddresses(function(err, adresses) {
-            console.log(err, adresses);
-          });
-
-          sandbox.system.getServerExternalURL(function(err, URL) {
-            console.log(err, URL);
-          });
-        };
-      }())
+    <h1 id="nodeunit-header">Snap Services Tests</h1>
+    <script>
+      function startApp(sandbox) {
+        this.Snap = sandbox;
+        nodeunit.run({
+          'Apps Service': apps,
+          'Users Service': users
+        });
+      };
     </script>
   </body>
 </html>
