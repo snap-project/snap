@@ -14,5 +14,6 @@ window:
   toolbar: False
 
 data:
-  autocreate: True
   dir: ./data
+  autoCreate: True
+  inMemoryOnly: False
