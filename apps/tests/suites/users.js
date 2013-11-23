@@ -14,6 +14,21 @@ this.users =  {
       );
       test.done();
     });
+  },
+
+  setUserName: function(test) {
+    this.Snap.users.setUserName('test', function(err, user) {
+      test.ifError(err);
+      test.ok(
+        user,
+        'User should not be falsy !'
+      );
+      test.ok(
+        user.name === 'test',
+        'User name should be equal to "test" !'
+      );
+      test.done();
+    });
   }
 
 };
