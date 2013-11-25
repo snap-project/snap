@@ -20,7 +20,8 @@
     "async": "~0.2.9",
     "tar": "~0.1.18",
     "unzip": "~0.1.9",
-    "grunt-contrib-jshint": "~0.7.1"
+    "grunt-contrib-jshint": "~0.7.1",
+    "grunt-node-webkit-builder": "~0.1.11"
   },
   "dependencies": {
     "snap-lib": "git://github.com/Bornholm/snap-lib.git#develop"

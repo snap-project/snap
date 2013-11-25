@@ -1,5 +1,8 @@
 /* jshint node: true */
 module.exports = function(grunt) {
+
+  var NW_VERSION = '0.8.1';
+
   grunt.initConfig({
 
     pkg: grunt.file.readJSON('package.json'),
@@ -8,7 +11,7 @@ module.exports = function(grunt) {
       options: {
         nwArgs: ['.'],
         nodeWebkitDir: 'node-webkit',
-        version: '0.8.0',
+        version: NW_VERSION,
         forceDownload: false
       }
     },
@@ -18,11 +21,25 @@ module.exports = function(grunt) {
       options: {
         jshintrc: true
       }
+    },
+
+    nodewebkit: {
+      options: {
+          version: NW_VERSION,
+          build_dir: './build',
+          mac: false,
+          win: true,
+          linux32: false,
+          linux64: true
+      },
+      src: ['package.json', './src/**/*', './config/**/*', './apps/**/*', 'node_modules/snap-lib/**/*']
     }
+
 
   });
 
   grunt.loadTasks('tasks');
   grunt.loadNpmTasks('grunt-contrib-jshint');
+  grunt.loadNpmTasks('grunt-node-webkit-builder');
 
 };
