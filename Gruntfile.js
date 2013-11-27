@@ -1,18 +1,31 @@
 /* jshint node: true */
 module.exports = function(grunt) {
 
-  var NW_VERSION = '0.8.1';
+  var NW_VERSION = '0.8.0';
 
   grunt.initConfig({
 
     pkg: grunt.file.readJSON('package.json'),
 
-    'run-nw': {
+    run: {
       options: {
         nwArgs: ['.'],
-        nodeWebkitDir: 'node-webkit',
-        version: NW_VERSION,
-        forceDownload: false
+        downloadDir: 'node-webkit',
+        runtimeVersion: NW_VERSION,
+        forceDownload: false,
+        forceExtract: false
+      }
+    },
+
+    build: {
+      options: {
+        runtimeVersion: NW_VERSION,
+        forceDownload: false,
+        forceExtract: false,
+        linux_ia32: false,
+        linux_x64: true,
+        win: false,
+        mac: false
       }
     },
 
@@ -25,12 +38,12 @@ module.exports = function(grunt) {
 
     nodewebkit: {
       options: {
-          version: NW_VERSION,
-          build_dir: './build',
-          mac: false,
-          win: true,
-          linux32: false,
-          linux64: true
+        runtimeVersion: NW_VERSION,
+        build_dir: './build',
+        mac: false,
+        win: true,
+        linux32: false,
+        linux64: true
       },
       src: ['package.json', './src/**/*', './config/**/*', './apps/**/*', 'node_modules/snap-lib/**/*']
     }
