@@ -16,6 +16,8 @@ module.exports = function(grunt) {
     var options = this.options({
       buildDir: 'build',
       downloadDir: 'node-webkit',
+      appsDir : 'apps',
+      configFiles: 'config/defaults.yaml',
       runtimeVersion: '0.8.0',
       downloadURL: 'https://s3.amazonaws.com/node-webkit',
       forceDownload: true,
@@ -63,18 +65,48 @@ module.exports = function(grunt) {
           function copyBinaries(buildDir, next) {
             var archivePath = nw.getNWArchivePath(options.runtimeVersion, platform, arch);
             var binariesDir = nw.getNWBinariesDir(archivePath);
-            var files = grunt.file.expand(binariesDir + '/**');
-            files.forEach(function(f) {
-              grunt.file.copy(f, buildDir+'/');
-            });
+            copyTree(binariesDir + '/**', buildDir);
             return next(null, buildDir);
-          }
+          },
+
+          function copyApps(buildDir, next) {
+            var appsDir = options.appsDir;
+            copyTree(appsDir + '/**', buildDir + '/apps/');
+            return next(null, buildDir);
+          },
+
+          function copyConfig(buildDir, next) {
+            var configFiles = options.configFiles;
+            copyTree(configFiles, buildDir + '/config/');
+            return next(null, buildDir);
+          },
+
+          function copySNAPLib(buildDir, next) {
+            copyTree('node_modules/snap-lib', buildDir + '/node_modules/');
+            return next(null, buildDir);
+          },
+
+          function copyPackageInfo(buildDir, next) {
+            grunt.file.copy('package.json', path.join(buildDir, 'package.json'));
+            return next(null, buildDir);
+          },
 
         ], cb);
 
       } else {
         return cb();
       }
+    }
+
+    function copyTree(src, dest) {
+      var files = grunt.file.expand(src);
+      files.forEach(function(f) {
+        if(!grunt.file.isDir(f)) {
+          var relPath = path.relative(path.dirname(src), f);
+          var realDest = path.join(dest, relPath);
+          grunt.file.copy(f, realDest);
+        }
+      });
     }
 
   }
