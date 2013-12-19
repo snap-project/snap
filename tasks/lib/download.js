@@ -34,7 +34,7 @@ module.exports = function(grunt) {
         }
       });
 
-      res.once('end', cb.bind(null, file));
+      res.once('end', cb.bind(null, null, file));
       res.once('error', cb);
       res.pipe(fileStream);
 

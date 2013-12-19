@@ -1,5 +1,6 @@
 var async = require('async');
 var path = require('path');
+var fs = require('fs');
 
 module.exports = function(grunt) {
 
@@ -10,9 +11,11 @@ module.exports = function(grunt) {
     var nw = require('./lib/node-webkit')(grunt);
     var util = require('./lib/util')(grunt);
 
+
     var task = this;
     var done = task.async();
 
+    var pkg = grunt.file.readJSON('package.json');
     var options = this.options({
       buildDir: 'build',
       downloadDir: 'node-webkit',
@@ -40,6 +43,8 @@ module.exports = function(grunt) {
 
       if(options[platform]) {
 
+        grunt.log.writeln('Building for platform ' + platform + '...');
+
         var arch = 'ia32';
         var isLinux = !!~platform.indexOf('linux');
         if(isLinux) {
@@ -47,51 +52,87 @@ module.exports = function(grunt) {
           platform = 'linux';
         }
 
-        return async.waterfall([
+        var steps = {
 
-          util.checkAndDownloadArchive.bind(task, platform, arch),
-          util.extractArchive.bind(task),
+          common: [
 
-          function createBuildDir(archivePath, next) {
-            var appDir = 'snap_' + platform + '_' + arch;
-            var buildDir = path.join(options.buildDir, appDir);
-            if(grunt.file.exists(buildDir)) {
-              grunt.file.delete(buildDir);
+            util.checkAndDownloadArchive.bind(options, platform, arch),
+            util.extractArchive.bind(options),
+
+            function createBuildDir(archivePath, next) {
+              var appDir = 'snap-' +
+                pkg.version + '-' +
+                platform + '-' +
+                arch;
+
+              var buildDir = path.join(options.buildDir, appDir);
+              if(grunt.file.exists(buildDir)) {
+                grunt.file.delete(buildDir);
+              }
+              grunt.file.mkdir(buildDir);
+              return next(null, buildDir);
+            },
+
+            function copyBinaries(buildDir, next) {
+              var archivePath = nw.getNWArchivePath(options.runtimeVersion, platform, arch);
+              var binariesDir = nw.getNWBinariesDir(archivePath);
+              copyTree(binariesDir + '/**', buildDir);
+              return next(null, buildDir);
+            },
+
+            function copyApps(buildDir, next) {
+              var appsDir = options.appsDir;
+              copyTree(appsDir + '/**', buildDir + '/apps/');
+              return next(null, buildDir);
+            },
+
+            function copyConfig(buildDir, next) {
+              var configFiles = options.configFiles;
+              copyTree(configFiles, buildDir + '/config/');
+              return next(null, buildDir);
+            },
+
+            function copySNAPLib(buildDir, next) {
+              copyTree('node_modules/snap-lib/**', buildDir + '/node_modules/snap-lib');
+              return next(null, buildDir);
+            },
+
+            function copyCommonFiles(buildDir, next) {
+              grunt.file.copy('package.json', path.join(buildDir, 'package.json'));
+              copyTree('bootstrap/**', buildDir + '/bootstrap/');
+              return next(null, buildDir);
             }
-            grunt.file.mkdir(buildDir);
-            return next(null, buildDir);
-          },
+          ],
 
-          function copyBinaries(buildDir, next) {
-            var archivePath = nw.getNWArchivePath(options.runtimeVersion, platform, arch);
-            var binariesDir = nw.getNWBinariesDir(archivePath);
-            copyTree(binariesDir + '/**', buildDir);
-            return next(null, buildDir);
-          },
+          mac: [],
+          win: [],
+          linux: [
 
-          function copyApps(buildDir, next) {
-            var appsDir = options.appsDir;
-            copyTree(appsDir + '/**', buildDir + '/apps/');
-            return next(null, buildDir);
-          },
+            function renameExec(buildDir, next) {
+              var nwPath = path.join(buildDir, 'nw');
+              var snapPath = path.join(buildDir, 'snap');
+              fs.renameSync(nwPath, snapPath);
+              return next(null, buildDir);
+            },
 
-          function copyConfig(buildDir, next) {
-            var configFiles = options.configFiles;
-            copyTree(configFiles, buildDir + '/config/');
-            return next(null, buildDir);
-          },
+            function chmod(buildDir, next) {
+              var nwPath = path.join(buildDir, 'snap');
+              fs.chmodSync(nwPath, '0755');
+              return next(null, buildDir);
+            },
 
-          function copySNAPLib(buildDir, next) {
-            copyTree('node_modules/snap-lib', buildDir + '/node_modules/');
-            return next(null, buildDir);
-          },
 
-          function copyPackageInfo(buildDir, next) {
-            grunt.file.copy('package.json', path.join(buildDir, 'package.json'));
-            return next(null, buildDir);
-          },
+            function removeNWSnapshot(buildDir, next) {
+              var snapshotPath = path.join(buildDir, 'nwsnapshot');
+              grunt.file.delete(snapshotPath);
+              return next(null, buildDir);
+            }
 
-        ], cb);
+          ]
+
+        };
+
+        return async.waterfall(steps.common.concat(steps[platform]), cb);
 
       } else {
         return cb();

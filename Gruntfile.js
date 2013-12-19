@@ -4,9 +4,7 @@ module.exports = function(grunt) {
   var NW_VERSION = '0.8.0';
 
   grunt.initConfig({
-
-    pkg: grunt.file.readJSON('package.json'),
-
+    
     run: {
       options: {
         nwArgs: ['.'],
@@ -19,12 +17,13 @@ module.exports = function(grunt) {
 
     build: {
       options: {
+        downloadDir: 'node-webkit',
         runtimeVersion: NW_VERSION,
         forceDownload: false,
         forceExtract: false,
         linux_ia32: false,
-        linux_x64: true,
-        win: false,
+        linux_x64: false,
+        win: true,
         mac: false
       }
     },
@@ -34,18 +33,6 @@ module.exports = function(grunt) {
       options: {
         jshintrc: true
       }
-    },
-
-    nodewebkit: {
-      options: {
-        runtimeVersion: NW_VERSION,
-        build_dir: './build',
-        mac: false,
-        win: true,
-        linux32: false,
-        linux64: true
-      },
-      src: ['package.json', './src/**/*', './config/**/*', './apps/**/*', 'node_modules/snap-lib/**/*']
     }
 
 

@@ -39,7 +39,7 @@ module.exports = function(grunt) {
   };
 
   nw.getNWBinariesDir = function(archivePath) {
-    var isLinux = !!archivePath.indexOf('linux');
+    var isLinux = !!~archivePath.indexOf('linux');
     return path.join(
       downloadDir,
       path.basename(archivePath, isLinux ? extract.TGZ : extract.ZIP)

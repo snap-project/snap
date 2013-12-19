@@ -2,7 +2,7 @@
   "name": "snap",
   "version": "0.0.0",
   "description": "SNAP ====",
-  "main": "src/loader.html",
+  "main": "bootstrap/loader.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -20,8 +20,7 @@
     "async": "~0.2.9",
     "tar": "~0.1.18",
     "unzip": "~0.1.9",
-    "grunt-contrib-jshint": "~0.7.1",
-    "grunt-node-webkit-builder": "~0.1.11"
+    "grunt-contrib-jshint": "~0.7.1"
   },
   "dependencies": {
     "snap-lib": "git://github.com/Bornholm/snap-lib.git#develop"

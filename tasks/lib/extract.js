@@ -16,14 +16,14 @@ function extract(type, archivePath, destDir, cb) {
       return stream
         .pipe(zlib.createGunzip())
         .pipe(tar.Extract(opts))
-        .once('end', cb.bind(null, archivePath))
+        .once('end', cb.bind(null, null, archivePath))
         .once('error', cb);
     break;
     case exports.ZIP:
       return stream
         .pipe(unzip.Extract(opts))
-        .once('end', next.bind(null, archivePath))
-        .once('error', next);
+        .once('end', cb.bind(null, null, archivePath))
+        .once('error', cb);
     break;
     default:
       throw new Error('Invalid archive type !');

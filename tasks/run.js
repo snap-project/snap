@@ -40,8 +40,8 @@ module.exports = function(grunt) {
     var arch = os.arch();
 
     async.waterfall([
-      util.checkAndDownloadArchive.bind(task, platform, arch),
-      util.extractArchive.bind(task),
+      util.checkAndDownloadArchive.bind(options, platform, arch),
+      util.extractArchive.bind(options),
       runSNAP
     ], done);
 
