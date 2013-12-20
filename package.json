@@ -23,7 +23,7 @@
     "grunt-contrib-jshint": "~0.7.1"
   },
   "dependencies": {
-    "snap-lib": "git://github.com/Bornholm/snap-lib.git#develop"
+    "snap-lib": "git+http://github.com/Bornholm/snap-lib.git#develop"
   },
   "window": {
     "frame": false,
