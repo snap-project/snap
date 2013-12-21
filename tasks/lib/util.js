@@ -36,7 +36,7 @@ module.exports = function(grunt) {
     } else {
       if(alreadyExtracted) grunt.file.delete(binariesDir);
       grunt.log.writeln('Extracting binaries. Please wait...');
-      if(archivePath.indexOf(extract.TGZ)) {
+      if(archivePath.indexOf(extract.TGZ) !== -1) {
         return extract.tgz(archivePath, this.downloadDir, cb);
       } else {
         return extract.zip(archivePath, this.downloadDir, cb);

@@ -1,33 +1,32 @@
-var fs = require('fs');
-var zlib = require('zlib');
-var tar = require('tar');
-var unzip = require('unzip');
+var path = require('path');
+var spawn = require('child_process').spawn;
 
 exports.TGZ = '.tar.gz';
 exports.ZIP = '.zip';
 
 function extract(type, archivePath, destDir, cb) {
-  var stream = fs.createReadStream(archivePath);
-  var opts = {
-    path: destDir
-  };
+  var child;
   switch(type) {
     case exports.TGZ:
-      return stream
-        .pipe(zlib.createGunzip())
-        .pipe(tar.Extract(opts))
-        .once('end', cb.bind(null, null, archivePath))
-        .once('error', cb);
-    break;
+      child = spawn('tar', ['-xzf', archivePath, '-C', destDir]);
+      break;
     case exports.ZIP:
-      return stream
-        .pipe(unzip.Extract(opts))
-        .once('end', cb.bind(null, null, archivePath))
-        .once('error', cb);
-    break;
+      var subDir = path.basename(archivePath, type);
+      destDir = path.join(destDir, subDir);
+      child = spawn('unzip', [archivePath, '-d', destDir]);
+      break;
     default:
-      throw new Error('Invalid archive type !');
-  };
+      return cb(new Error('Invalid archive type !'));
+  }
+  process.stdin.pipe(child.stdin);
+  child.stdout.pipe(process.stdout, {end: true});
+  child.stderr.pipe(process.stderr, {end: true});
+  child.once('close', function(code) {
+    if(code !== 0) {
+      return cb(new Error('Error while extracting !'));
+    }
+    return cb(null, archivePath);
+  });
 }
 
 exports.zip = extract.bind(null, exports.ZIP);

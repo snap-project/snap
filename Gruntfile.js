@@ -1,7 +1,7 @@
 /* jshint node: true */
 module.exports = function(grunt) {
 
-  var NW_VERSION = '0.8.0';
+  var NW_VERSION = '0.8.2';
 
   grunt.initConfig({
     
@@ -23,8 +23,8 @@ module.exports = function(grunt) {
         forceExtract: false,
         linux_ia32: false,
         linux_x64: false,
-        win: true,
-        mac: false
+        win: false,
+        osx: true
       }
     },
 
@@ -40,6 +40,5 @@ module.exports = function(grunt) {
 
   grunt.loadTasks('tasks');
   grunt.loadNpmTasks('grunt-contrib-jshint');
-  grunt.loadNpmTasks('grunt-node-webkit-builder');
 
 };

@@ -28,7 +28,7 @@ module.exports = function(grunt) {
       linux_ia32: true,
       linux_x64: true,
       win: true,
-      mac: true
+      osx: true
     });
 
     nw
@@ -36,7 +36,7 @@ module.exports = function(grunt) {
       .setDownloadRootURL(options.downloadURL);
 
 
-    var platforms = 'linux_x64 linux_ia32 win mac'.split(' ');
+    var platforms = 'linux_x64 linux_ia32 win osx'.split(' ');
     async.forEachSeries(platforms, buildForPlatform, done);
 
     function buildForPlatform(platform, cb) {
@@ -104,7 +104,7 @@ module.exports = function(grunt) {
             }
           ],
 
-          mac: [],
+          osx: [],
           win: [],
           linux: [
 
