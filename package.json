@@ -4,8 +4,7 @@
   "description": "snap-lib ========",
   "main": "index.js",
   "scripts": {
-    "test": "node_modules/nodeunit/bin/nodeunit test",
-    "install": "bower install"
+    "test": "node_modules/nodeunit/bin/nodeunit test"
   },
   "repository": {
     "type": "git",
