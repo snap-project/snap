@@ -1,7 +1,7 @@
 /* jshint node: true */
 module.exports = function(grunt) {
 
-  var NW_VERSION = '0.8.2';
+  var NW_VERSION = '0.8.3';
 
   grunt.initConfig({
     
@@ -21,15 +21,15 @@ module.exports = function(grunt) {
         runtimeVersion: NW_VERSION,
         forceDownload: false,
         forceExtract: false,
-        linux_ia32: false,
-        linux_x64: false,
+        linux_ia32: true,
+        linux_x64: true,
         win: false,
-        osx: true
+        osx: false
       }
     },
 
     jshint: {
-      files: ['src/**/*.js', 'tasks/**/*.js', 'Gruntfile.js'],
+      files: ['src/**/*.js', 'tasks/**/*.js'],
       options: {
         jshintrc: true
       }
