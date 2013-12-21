@@ -9,10 +9,6 @@ server:
   session:
     secret: "these are not the droids you are looking for"
 
-window:
-  position: center
-  toolbar: False
-
 data:
   dir: ./data
   autoCreate: True
