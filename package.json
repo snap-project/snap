@@ -17,8 +17,7 @@
   },
   "devDependencies": {
     "grunt": "0.4.1",
-    "async": "~0.2.9",
-    "grunt-contrib-jshint": "~0.7.1"
+    "async": "~0.2.9"
   },
   "dependencies": {
     "snap-lib": "git+http://github.com/Bornholm/snap-lib.git#develop"
