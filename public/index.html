@@ -6,6 +6,13 @@
   <body>
     <iframe id="app" seamless sandbox="allow-scripts allow-forms"></iframe>
     <a href="/"><img id="home-button" src="img/home.svg" /></a>
-    <script type="text/javascript" src="supervisor.js"></script>
+    <script type="text/javascript" src="scripts/supervisor.js"></script>
+    <script type="text/javascript" src="scripts/plugins.js"></script>
+    <script type="text/javascript" src="scripts/bootstrap.js"></script>
+    <script type="text/javascript">
+      (function() {
+        supervisor.loadApp();
+      }())
+    </script>
   </body>
 </html>
