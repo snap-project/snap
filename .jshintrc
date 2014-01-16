@@ -11,5 +11,6 @@
   "trailing": true,
   "latedef" : true,
   "maxparams": 4,
-  "maxcomplexity": 10
+  "maxcomplexity": 10,
+  "maxerr": 1
 }
