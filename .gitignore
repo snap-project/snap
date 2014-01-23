@@ -18,3 +18,5 @@ node-webkit
 build
 data
 apps
+libudev.so.0
+app.js
