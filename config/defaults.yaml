@@ -1,6 +1,6 @@
 
 apps:
-  dir: ./apps
+  dir: &apps_dir ./apps
   default: home
 
 server:
@@ -9,7 +9,13 @@ server:
   session:
     secret: "these are not the droids you are looking for"
 
-data:
-  dir: ./data
-  autoCreate: True
-  inMemoryOnly: False
+storage:
+  global:
+    memory: false
+    dir: ./data
+  plugins:
+    memory: false
+    dir: ./data/plugins
+  apps:
+    memory: false
+    dir: *apps_dir
