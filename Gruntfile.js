@@ -23,7 +23,7 @@ module.exports = function(grunt) {
         forceExtract: false,
         linux_ia32: true,
         linux_x64: true,
-        win: false,
+        win: true,
         osx: false
       }
     }
