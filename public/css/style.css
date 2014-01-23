@@ -13,31 +13,37 @@ html, body {
   height: 100%;
   margin: 0;
   border: none;
+  padding-bottom: 40px;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
   z-index: 0;
 }
 
-#home-button {
-  position: absolute;
-  z-index: 100;
-  bottom: 10px;
-  left: 10px;
-  width: 20px;
-  height: 20px;
+#snap-bar {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  height: 40px;
+  background-color: #333;
+  padding: 0 10px;
+}
+
+.bar-button {
   cursor: pointer;
   -webkit-transition: all 250ms ease;
   -moz-transition: all 250ms ease;
   -ms-transition: all 250ms ease;
   -o-transition: all 250ms ease;
   transition: all 250ms ease;
+  margin-top: 5px;
+  display: inline-block;
 }
 
-#home-button:hover {
-  -moz-transform: scale(1.2);
-  -webkit-transform: scale(1.2);
-  -o-transform: scale(1.2);
-  -ms-transform: scale(1.2);
-  transform: scale(1.2);
-};
+.bar-button img {
+  height: 30px;
+}
