@@ -92,8 +92,8 @@ module.exports = function(grunt) {
               return next(null, buildDir);
             },
 
-            function copySNAPLib(buildDir, next) {
-              copyTree('node_modules/snap-lib/**', buildDir + '/node_modules/snap-lib');
+            function copyModules(buildDir, next) {
+              copyTree('node_modules/**', buildDir + '/node_modules');
               return next(null, buildDir);
             },
 

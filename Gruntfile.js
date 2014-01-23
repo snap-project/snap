@@ -26,19 +26,11 @@ module.exports = function(grunt) {
         win: false,
         osx: false
       }
-    },
-
-    jshint: {
-      files: ['src/**/*.js', 'tasks/**/*.js'],
-      options: {
-        jshintrc: true
-      }
     }
 
 
   });
 
   grunt.loadTasks('tasks');
-  grunt.loadNpmTasks('grunt-contrib-jshint');
 
 };
