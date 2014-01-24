@@ -1,5 +1,7 @@
 #snap-lib
 
+See [SNAP](https://github.com/Bornholm/snap)
+
 ## Generate doc
 
 ```
