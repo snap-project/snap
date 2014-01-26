@@ -20,7 +20,7 @@
     "async": "~0.2.9"
   },
   "dependencies": {
-    "snap-lib": "git+http://github.com/Bornholm/snap-lib.git#develop"
+    "snap-lib": "git+https://github.com/Bornholm/snap-lib.git#develop"
   },
   "window": {
     "show": true,
