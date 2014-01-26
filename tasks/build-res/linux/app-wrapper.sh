@@ -1,6 +1,6 @@
-#!/bin/sh
+#!/bin/bash
 
-. libudev-linker.sh
+. ./libudev-linker.sh
 
 export SNAP_WRAPPER="`readlink -f "$0"`"
 
