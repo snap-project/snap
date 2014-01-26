@@ -24,9 +24,9 @@ module.exports = function(grunt) {
         runtimeVersion: NW_VERSION,
         forceDownload: false,
         forceExtract: false,
-        linux_ia32: false,
+        linux_ia32: true,
         linux_x64: true,
-        win: false,
+        win: true,
         osx: false
       }
     }
