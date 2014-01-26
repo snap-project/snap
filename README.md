@@ -17,3 +17,11 @@ grunt run
 ## Linux: Lack of libudev.so.0 ?
 
 See [node-webkit documentation](https://github.com/rogerwang/node-webkit/wiki/The-solution-of-lacking-libudev.so.0)
+
+**Workaround**
+```
+. tasks/build-res/linux/libudev-linker.sh
+grunt run
+```
+
+

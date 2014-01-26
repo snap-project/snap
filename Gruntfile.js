@@ -3,6 +3,9 @@ module.exports = function(grunt) {
 
   var NW_VERSION = '0.8.3';
 
+  // linudev.so.0 workaround, see README.md
+  process.env.LD_LIBRARY_PATH = '.:' + process.env.LD_LIBRARY_PATH;
+
   grunt.initConfig({
     
     run: {
@@ -21,9 +24,9 @@ module.exports = function(grunt) {
         runtimeVersion: NW_VERSION,
         forceDownload: false,
         forceExtract: false,
-        linux_ia32: true,
+        linux_ia32: false,
         linux_x64: true,
-        win: true,
+        win: false,
         osx: false
       }
     }

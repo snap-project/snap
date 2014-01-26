@@ -101,32 +101,45 @@ module.exports = function(grunt) {
               grunt.file.copy('package.json', path.join(buildDir, 'package.json'));
               copyTree('bootstrap/**', buildDir + '/bootstrap/');
               return next(null, buildDir);
-            }
-          ],
-
-          osx: [],
-          win: [],
-          linux: [
-
-            function renameExec(buildDir, next) {
-              var nwPath = path.join(buildDir, 'nw');
-              var snapPath = path.join(buildDir, 'snap');
-              fs.renameSync(nwPath, snapPath);
-              return next(null, buildDir);
             },
-
-            function chmod(buildDir, next) {
-              var nwPath = path.join(buildDir, 'snap');
-              fs.chmodSync(nwPath, '0755');
-              return next(null, buildDir);
-            },
-
 
             function removeNWSnapshot(buildDir, next) {
               var snapshotPath = path.join(buildDir, 'nwsnapshot');
               grunt.file.delete(snapshotPath);
               return next(null, buildDir);
             }
+
+          ],
+
+          osx: [],
+          win: [],
+          linux: [
+
+            // Workaround libudev.so.0
+            function addWrapper(buildDir, next) {
+              copyTree('tasks/build-res/linux/**', buildDir);
+              var currentWrapper = path.join(buildDir, 'app-wrapper.sh');
+              var dest = path.join(buildDir, 'snap');
+              fs.renameSync(currentWrapper, dest);
+              return next(null, buildDir);
+            },
+
+            function renameExec(buildDir, next) {
+              var nwPath = path.join(buildDir, 'nw');
+              var snapPath = path.join(buildDir, 'snap-bin');
+              fs.renameSync(nwPath, snapPath);
+              return next(null, buildDir);
+            },
+
+            function makeExecutable(buildDir, next) {
+              var files = ['snap', 'snap-bin'];
+              files.forEach(function(file) {
+                var nwPath = path.join(buildDir, file);
+                fs.chmodSync(nwPath, '0755');
+              });
+              return next(null, buildDir);
+            }
+            
 
           ]
 
