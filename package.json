@@ -26,5 +26,6 @@
     "show": true,
     "toolbar": true,
     "position": "center"
-  }
+  },
+  "node-remote": "localhost"
 }
