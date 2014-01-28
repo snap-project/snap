@@ -1,4 +1,6 @@
-#snap-lib
+#snap-lib [![Build Status](https://travis-ci.org/Bornholm/snap-lib.png?branch=develop)](https://travis-ci.org/Bornholm/snap-lib)
+
+See [SNAP](https://github.com/Bornholm/snap)
 
 ## Generate doc
 
