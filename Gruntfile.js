@@ -27,7 +27,12 @@ module.exports = function(grunt) {
         linux_ia32: true,
         linux_x64: true,
         win: true,
-        osx: false
+        osx: false,
+        packageOverride: {
+          window: {
+            toolbar: false
+          }
+        }
       }
     }
 

@@ -15,4 +15,6 @@ else
 fi
 export LD_LIBRARY_PATH
 
-exec -a "$0" "$HERE/snap-bin"  "$@"
+export NODE_ENV=production
+
+exec -a "$0" "$HERE/snap-bin" "$@"

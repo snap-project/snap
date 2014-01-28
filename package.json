@@ -17,7 +17,8 @@
   },
   "devDependencies": {
     "grunt": "0.4.1",
-    "async": "~0.2.9"
+    "async": "~0.2.9",
+    "lodash": "~2.4.1"
   },
   "dependencies": {
     "snap-lib": "git+https://github.com/Bornholm/snap-lib.git#develop"
@@ -25,7 +26,8 @@
   "window": {
     "show": true,
     "toolbar": true,
-    "position": "center"
+    "position": "center",
+    "title": "SNAP!"
   },
   "node-remote": "localhost"
 }

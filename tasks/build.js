@@ -1,4 +1,5 @@
 var async = require('async');
+var _ = require('lodash');
 var path = require('path');
 var fs = require('fs');
 
@@ -10,7 +11,6 @@ module.exports = function(grunt) {
 
     var nw = require('./lib/node-webkit')(grunt);
     var util = require('./lib/util')(grunt);
-
 
     var task = this;
     var done = task.async();
@@ -28,7 +28,8 @@ module.exports = function(grunt) {
       linux_ia32: true,
       linux_x64: true,
       win: true,
-      osx: true
+      osx: true,
+      packageOverride: {}
     });
 
     nw
@@ -103,16 +104,27 @@ module.exports = function(grunt) {
               return next(null, buildDir);
             },
 
-            function removeNWSnapshot(buildDir, next) {
-              var snapshotPath = path.join(buildDir, 'nwsnapshot');
-              grunt.file.delete(snapshotPath);
+            function overridePackageJSON(buildDir, next) {
+              var packageFile = path.join(buildDir, 'package.json');
+              var nwPackage = grunt.file.readJSON(packageFile);
+              _.merge(nwPackage, options.packageOverride);
+              grunt.file.write(packageFile, JSON.stringify(nwPackage, null, 2));
               return next(null, buildDir);
             }
 
           ],
 
           osx: [],
-          win: [],
+          win: [
+
+            function renameExec(buildDir, next) {
+              var nwPath = path.join(buildDir, 'nw.exe');
+              var snapPath = path.join(buildDir, 'snap.exe');
+              fs.renameSync(nwPath, snapPath);
+              return next(null, buildDir);
+            }
+
+          ],
           linux: [
 
             // Workaround libudev.so.0
@@ -137,6 +149,13 @@ module.exports = function(grunt) {
                 var nwPath = path.join(buildDir, file);
                 fs.chmodSync(nwPath, '0755');
               });
+              return next(null, buildDir);
+            },
+
+
+            function removeNWSnapshot(buildDir, next) {
+              var snapshotPath = path.join(buildDir, 'nwsnapshot');
+              grunt.file.delete(snapshotPath);
               return next(null, buildDir);
             }
             
