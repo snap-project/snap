@@ -1,2 +1,5 @@
 **/*
-!zepto/zepto.min.js
+!fastclick/lib/fastclick.js
+!jquery/jquery.min.js
+!nprogress/nprogress.css
+!nprogress/nprogress.js
