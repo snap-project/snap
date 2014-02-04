@@ -2,6 +2,10 @@
 
 **S**imple **N**omad **A**pplication **P**ortal
 
+## Nightly Builds
+
+[From 'develop' branch](http://snap.lookingfora.name/)
+
 
 ## For developers & testers
 
