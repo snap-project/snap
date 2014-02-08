@@ -1,4 +1,4 @@
-![SNAP!](http://snap.lookingfora.name/snap_logo.png)
+# SNAP!
 
 **S**imple **N**omad **A**pplication **P**ortal
 
