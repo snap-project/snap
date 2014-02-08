@@ -2,7 +2,7 @@
   "name": "snap-lib",
   "main": "index.js",
   "version": "0.0.0",
-  "homepage": "https://github.com/Bornholm/snap-lib",
+  "homepage": "https://github.com/snap-project/snap-lib",
   "authors": [
     "Bornholm <william.petit@lookingfora.name>"
   ],
