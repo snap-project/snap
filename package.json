@@ -29,11 +29,12 @@
     "async": "~0.2.10",
     "express": "~3.4.4",
     "lodash": "~2.2.1",
-    "nedb": "~0.8.13",
     "mkdirp": "~0.3.5",
     "node-uuid": "~1.4.1",
     "browserify-middleware": "~2.2.0",
     "cors": "~2.1.1",
-    "jayschema": "~0.2.3"
+    "jayschema": "~0.2.3",
+    "levelup": "~0.18.2",
+    "memdown": "~0.6.0"
   }
 }
