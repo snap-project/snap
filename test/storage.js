@@ -1,8 +1,8 @@
-var StorageAPI = require('../lib/api/storage/storage-api');
+var apiFactory = require('../lib/api/storage/api');
 
 // Set up test environment
 exports.setUp = function(cb) {
-  this.storage = new StorageAPI();
+  this.storage = apiFactory();
   return cb();
 };
 

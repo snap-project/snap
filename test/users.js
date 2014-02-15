@@ -1,11 +1,11 @@
-var StorageAPI = require('../lib/api/storage/storage-api');
-var UsersAPI = require('../lib/api/users/users-api');
+var storageAPIFactory = require('../lib/api/storage/api');
+var usersAPIFactory = require('../lib/api/users/api');
 
 // Set up test environment
 exports.setUp = function(cb) {
-  var storage = new StorageAPI();
+  var storage = storageAPIFactory();
   var store = storage.getGlobalStore('users');
-  var users = this.users = new UsersAPI(store);
+  var users = this.users = usersAPIFactory({store: store});
   return cb();
 };
 
