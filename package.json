@@ -8,12 +8,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Bornholm/snap.git"
+    "url": "https://github.com/snap-project/snap.git"
   },
   "author": "",
   "license": "AGPL",
   "bugs": {
-    "url": "https://github.com/Bornholm/snap/issues"
+    "url": "https://github.com/snap-project/snap/issues"
   },
   "devDependencies": {
     "grunt": "0.4.1",
@@ -21,7 +21,7 @@
     "lodash": "~2.4.1"
   },
   "dependencies": {
-    "snap-lib": "git+https://github.com/Bornholm/snap-lib.git#develop"
+    "snap-lib": "git+https://github.com/snap-project/snap-lib.git#develop"
   },
   "window": {
     "show": true,

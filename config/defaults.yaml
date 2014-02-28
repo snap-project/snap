@@ -11,11 +11,11 @@ server:
 
 storage:
   global:
-    memory: false
+    adapter: 'nedbDOWN'
     dir: ./data
   plugins:
-    memory: false
+    adapter: 'nedbDOWN'
     dir: ./data/plugins
   apps:
-    memory: false
+    adapter: 'nedbDOWN'
     dir: *apps_dir
