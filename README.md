@@ -1,6 +1,10 @@
-# SNAP
+![SNAP!](http://snap.lookingfora.name/snap_logo.png)
 
-**S**imple **N**omad **A**pplication **P**ortal
+_**S**imple **N**omad **A**pplication **P**ortal_
+
+## Nightly Builds
+
+[From 'develop' branch](http://snap.lookingfora.name/)
 
 
 ## For developers & testers
@@ -12,6 +16,13 @@ git clone https://github.com/Bornholm/snap-apps.git apps
 sudo npm install grunt-cli -g
 npm install
 grunt run
+```
+**'Headless' mode**
+
+You can launch SNAP! as a regular node application
+```
+cd snap
+node app
 ```
 
 ## Linux: Lack of libudev.so.0 ?

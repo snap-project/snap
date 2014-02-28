@@ -100,7 +100,8 @@ module.exports = function(grunt) {
 
             function copyCommonFiles(buildDir, next) {
               grunt.file.copy('package.json', path.join(buildDir, 'package.json'));
-              copyTree('bootstrap/**', buildDir + '/bootstrap/');
+              grunt.file.copy('index.html', path.join(buildDir, 'index.html'));
+              grunt.file.copy('app.js', path.join(buildDir, 'app.js'));
               return next(null, buildDir);
             },
 
