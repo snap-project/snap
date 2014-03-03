@@ -36,6 +36,7 @@
     "jayschema": "~0.2.3",
     "levelup": "~0.18.2",
     "memdown": "~0.6.0",
-    "nedbDOWN": "git+https://github.com/snap-project/nedbDOWN.git"
+    "nedbDOWN": "git+https://github.com/snap-project/nedbDOWN.git",
+    "sift": "0.0.12"
   }
 }
