@@ -1,19 +1,19 @@
 {
-  "name": "snap-lib",
+  "name": "snap-core",
   "version": "0.0.0",
-  "description": "snap-lib ========",
+  "description": "snap-core ========",
   "main": "index.js",
   "scripts": {
     "test": "node_modules/nodeunit/bin/nodeunit test"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/snap-project/snap-lib.git"
+    "url": "https://github.com/snap-project/snap-core.git"
   },
   "author": "",
   "license": "AGPL",
   "bugs": {
-    "url": "https://github.com/snap-project/snap-lib/issues"
+    "url": "https://github.com/snap-project/snap-core/issues"
   },
   "devDependencies": {
     "grunt": "0.4.1",
