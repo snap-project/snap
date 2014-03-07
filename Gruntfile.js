@@ -1,7 +1,7 @@
 /* jshint node: true */
 module.exports = function(grunt) {
 
-  var NW_VERSION = '0.8.3';
+  var NW_VERSION = '0.9.2';
 
   // linudev.so.0 workaround, see README.md
   process.env.LD_LIBRARY_PATH = '.:' + process.env.LD_LIBRARY_PATH;
