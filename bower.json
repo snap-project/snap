@@ -18,6 +18,7 @@
   ],
   "dependencies": {
     "nprogress": "~0.1.2",
-    "fastclick": "~0.6.11"
+    "fastclick": "~0.6.11",
+    "jquery": "~2.1.0"
   }
 }
