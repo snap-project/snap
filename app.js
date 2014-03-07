@@ -1,4 +1,4 @@
-var Snap = require('snap-lib').Snap;
+var Snap = require('snap-core').Snap;
 var app = new Snap();
 app.startWebServer(function(err) {
   if(err) {
