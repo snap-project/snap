@@ -1,5 +1,5 @@
 **/*
 !fastclick/lib/fastclick.js
-!jquery/jquery.min.js
+!jquery/dist/jquery.min.js
 !nprogress/nprogress.css
 !nprogress/nprogress.js
