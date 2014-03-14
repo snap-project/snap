@@ -18,7 +18,10 @@
   "devDependencies": {
     "grunt": "0.4.1",
     "async": "~0.2.9",
-    "lodash": "~2.4.1"
+    "lodash": "~2.4.1",
+    "grunt-contrib-copy": "^0.5.0",
+    "grunt-contrib-clean": "^0.5.0",
+    "grunt-nw": "git+https://github.com/snap-project/grunt-nw.git#develop"
   },
   "dependencies": {
     "snap-core": "git+https://github.com/snap-project/snap-core.git#develop"
