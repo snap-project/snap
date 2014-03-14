@@ -10,9 +10,14 @@ module.exports = function(grunt) {
     linux_ia32: true,
     linux_x64: true,
     win: true,
-    osx: true
+    osx: false
   };
   var PKG = grunt.file.readJSON('package.json');
+  var PKG_OVERWRITE = {
+    window: {
+      toolbar: false
+    }
+  };
 
   // Create build tasks options
   var buildOptions = _.merge({
@@ -44,8 +49,10 @@ module.exports = function(grunt) {
       // Add package.json
       snapFiles.push({src: 'package.json', dest: destPath});
 
-      // Add main files & config
-      snapFiles.push({src: ['index.html', 'app.js', 'config/defaults.yaml'], dest: destPath});
+      // Add main files, licence, & config
+      snapFiles.push({src: ['index.html', 'app.js', 'config/defaults.yaml', 'LICENSE'], dest: destPath});
+
+
     }
   });
 
@@ -71,7 +78,14 @@ module.exports = function(grunt) {
 
     copy: {
       build: {
-        files: snapFiles
+        files: snapFiles,
+        options: {
+          noProcess: ['**','!package.json'],
+          process: function(content, srcPath) {
+            var pkg = _.merge(PKG, PKG_OVERWRITE);
+            return JSON.stringify(pkg, null, 2);
+          }
+        }
       }
     }
 
