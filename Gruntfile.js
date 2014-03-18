@@ -93,6 +93,7 @@ module.exports = function(grunt) {
 
   grunt.registerTask('snap:run',  ['download', 'run']);
   grunt.registerTask('snap:build',  ['download', 'clean:build', 'build', 'copy:build']);
+  grunt.registerTask('default', ['snap:run']);
 
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-copy');
