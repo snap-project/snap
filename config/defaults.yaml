@@ -12,10 +12,24 @@ server:
 storage:
   global:
     adapter: 'nedbDOWN'
-    dir: ./data
+    dir: data
   plugins:
     adapter: 'nedbDOWN'
-    dir: ./data/plugins
+    dir: data/plugins
   apps:
     adapter: 'nedbDOWN'
     dir: *apps_dir
+
+log:
+  exitOnError: true
+  transports:
+    - type: 'Console'
+      options:
+        timestamp: true
+        colorize: true
+    - type: 'File'
+      options:
+        filename: data/snap.log
+        maxsize: 30000000
+        maxFiles: 1
+        handleExceptions: true
