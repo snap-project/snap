@@ -22,7 +22,7 @@ html, body {
   background: -o-linear-gradient(top, #85b2d3, #a7c7dc);
 }
 
-#app {
+#app-container {
   position: absolute;
   top: 0;
   width: 100%;
@@ -35,6 +35,11 @@ html, body {
   box-sizing: border-box;
   z-index: 0;
   background-color: transparent;
+}
+
+#app-container iframe {
+  width: 100%;
+  height: 100%;
 }
 
 #snap-bar {
