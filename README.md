@@ -1,6 +1,6 @@
-![SNAP!](http://snap.lookingfora.name/snap_logo.png)
+# <img src="https://raw.githubusercontent.com/snap-project/snap-core/develop/public/img/logo.svg" height="64px" alt="SNAP! logo" /> SNAP!
 
-_**S**imple **N**omad **A**pplication **P**ortal_
+**S**imple **N**omad **A**pplication **P**ortal
 
 ## Nightly Builds
 
