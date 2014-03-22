@@ -30,7 +30,8 @@
     "show": true,
     "toolbar": true,
     "position": "center",
-    "title": "SNAP!"
+    "title": "SNAP!",
+    "icon": "./node_modules/snap-core/public/img/logo_128.png"
   },
   "node-remote": "localhost"
 }
