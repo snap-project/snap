@@ -9,17 +9,18 @@ html, body {
   height: 100%;
   padding: 0;
   margin: 0;
-  background-color: #a7c7dc;
-  /* Safari 4-5, Chrome 1-9 */
-  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#a7c7dc), to(#85b2d3));
-  /* Safari 5.1, Chrome 10+ */
-  background: -webkit-linear-gradient(top, #85b2d3, #a7c7dc);
-  /* Firefox 3.6+ */
-  background: -moz-linear-gradient(top, #85b2d3, #a7c7dc);
-  /* IE 10 */
-  background: -ms-linear-gradient(top, #85b2d3, #a7c7dc);
-  /* Opera 11.10+ */
-  background: -o-linear-gradient(top, #85b2d3, #a7c7dc);
+  background: rgb(242,245,246);
+  overflow: hidden;
+  background-image: url('../img/logo_transparent.svg'), -moz-radial-gradient(center, ellipse cover,  rgba(242,245,246,1) 0%, rgba(200,215,220,1) 100%);
+  background-image: url('../img/logo_transparent.svg'), -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,rgba(242,245,246,1)), color-stop(100%,rgba(200,215,220,1)));
+  background-image: url('../img/logo_transparent.svg'), -webkit-radial-gradient(center, ellipse cover,  rgba(242,245,246,1) 0%,rgba(200,215,220,1) 100%);
+  background-image: url('../img/logo_transparent.svg'), -o-radial-gradient(center, ellipse cover,  rgba(242,245,246,1) 0%,rgba(200,215,220,1) 100%);
+  background-image: url('../img/logo_transparent.svg'), -ms-radial-gradient(center, ellipse cover,  rgba(242,245,246,1) 0%,rgba(200,215,220,1) 100%);
+  background-image: url('../img/logo_transparent.svg'), radial-gradient(ellipse at center,  rgba(242,245,246,1) 0%,rgba(200,215,220,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f2f5f6', endColorstr='#c8d7dc',GradientType=1 );
+  background-repeat: no-repeat;
+  background-size: 200px, cover;
+  background-position: right bottom, 0;
 }
 
 #app-container {
