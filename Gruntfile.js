@@ -42,7 +42,7 @@ module.exports = function(grunt) {
 
       // Add snap dependencies
       var modules = _.keys(PKG.dependencies).map(function(moduleName) {
-        return path.join('node_modules', moduleName);
+        return path.join('node_modules', moduleName, '**');
       });
       snapFiles.push({src: modules, dest: destPath});
       
