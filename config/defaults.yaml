@@ -29,7 +29,7 @@ log:
         colorize: true
     - type: 'File'
       options:
-        filename: data/snap.log
+        filename: snap.log
         maxsize: 30000000
         maxFiles: 1
         handleExceptions: true
