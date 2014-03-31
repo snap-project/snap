@@ -23,11 +23,13 @@ storage:
 log:
   exitOnError: true
   transports:
-    - type: 'Console'
+    Console:
+      type: 'Console'
       options:
         timestamp: true
         colorize: true
-    - type: 'File'
+    File:
+      type: 'File'
       options:
         filename: snap.log
         maxsize: 30000000
