@@ -9,7 +9,7 @@
   <body>
     <div id="app-container"></div>
     <div id="snap-bar">
-      <a onclick="supervisor.loadApp()" ontouchstart="supervisor.loadApp()" class="bar-button"><img src="img/home.svg" /></a>
+      <a href="#/" ontouchstart="supervisor.loadApp()" class="bar-button"><img src="img/home.svg" /></a>
     </div>
     <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
     <script type="text/javascript" src="bower_components/fastclick/lib/fastclick.js"></script>
@@ -22,7 +22,7 @@
         FastClick.attach(document.body);
         supervisor.on('start-working', NProgress.start);
         supervisor.on('stop-working', NProgress.done);
-        supervisor.loadApp();
+        supervisor.loadApp(supervisor.getCurrentApp());
       });
     </script>
   </body>
