@@ -4,7 +4,7 @@ var path = require('path');
 
 module.exports = function(grunt) {
 
-  var NW_VERSION = '0.9.2';
+  var NW_VERSION = '0.10.4';
   var BUILD_DIR = 'build';
   var BUILD_TARGETS = {
     linux_ia32: true,
@@ -45,7 +45,7 @@ module.exports = function(grunt) {
         return path.join('node_modules', moduleName, '**');
       });
       snapFiles.push({src: modules, dest: destPath});
-      
+
       // Add package.json
       snapFiles.push({src: 'package.json', dest: destPath});
 
@@ -60,7 +60,13 @@ module.exports = function(grunt) {
   grunt.initConfig({
 
     pkg: PKG,
-    
+
+    download: {
+      options: {
+        runtimeVersion: NW_VERSION
+      }
+    },
+
     run: {
       options: {
         nwArgs: ['.'],
