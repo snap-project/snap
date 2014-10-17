@@ -28,7 +28,7 @@
   },
   "window": {
     "show": true,
-    "toolbar": true,
+    "toolbar": false,
     "position": "center",
     "title": "SNAP!",
     "icon": "./node_modules/snap-core/public/img/logo_128.png"

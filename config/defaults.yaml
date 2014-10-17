@@ -11,7 +11,7 @@ server:
     resave: false
     saveUninitialized: false
   primus:
-    transformer: sockjs
+    transformer: browserchannel
 
 storage:
   global:
@@ -23,19 +23,3 @@ storage:
   apps:
     adapter: 'nedbDOWN'
     dir: *apps_dir
-
-log:
-  exitOnError: true
-  transports:
-    Console:
-      type: 'Console'
-      options:
-        timestamp: true
-        colorize: true
-    File:
-      type: 'File'
-      options:
-        filename: snap.log
-        maxsize: 30000000
-        maxFiles: 1
-        handleExceptions: true
