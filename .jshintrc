@@ -9,8 +9,7 @@
   "newcap": true,
   "unused": true,
   "trailing": true,
-  "latedef" : true,
   "maxparams": 4,
   "maxcomplexity": 10,
-  "maxerr": 1
+  "maxerr": 5
 }
