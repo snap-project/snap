@@ -11,7 +11,7 @@ server:
     resave: false
     saveUninitialized: false
   primus:
-    transformer: browserchannel
+    transformer: faye
 
 storage:
   global:
