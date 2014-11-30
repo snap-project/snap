@@ -1,6 +1,8 @@
 var storageAPIFactory = require('../lib/api/storage/api');
 var usersAPIFactory = require('../lib/api/users/api');
 
+return;
+
 // Set up test environment
 exports.setUp = function(cb) {
   var storage = storageAPIFactory();
@@ -74,5 +76,5 @@ exports.findByNickname = function(test) {
     });
 
   });
-  
+
 };
