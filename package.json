@@ -42,6 +42,7 @@
     "mkdirp": "~0.3.5",
     "nconf": "~0.6.8",
     "nedbDOWN": "git+https://github.com/snap-project/nedbDOWN.git",
+    "schematics": "git+https://github.com/snap-project/schematics",
     "node-uuid": "~1.4.1",
     "primus": "^2.4.6",
     "serve-static": "^1.7.0",
