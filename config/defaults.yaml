@@ -23,3 +23,6 @@ storage:
   apps:
     adapter: 'nedbDOWN'
     dir: *apps_dir
+
+log:
+  level: info
