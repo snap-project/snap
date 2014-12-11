@@ -1,80 +1,94 @@
+/* jshint node:true */
 var storageAPIFactory = require('../lib/api/storage/api');
-var usersAPIFactory = require('../lib/api/users/api');
+var DefaultAuthBackend = require('../lib/api/users/default-backend');
+var User = require('../lib/api/users/user');
 
-return;
+/*
+ * Default Backend Tests
+ */
+
+var defaultBackend = exports.defaultBackend = {};
 
 // Set up test environment
-exports.setUp = function(cb) {
-  var storage = storageAPIFactory();
-  var store = storage.getGlobalStore('users');
-  var users = this.users = usersAPIFactory({store: store});
+defaultBackend.setUp = function(cb) {
+
+  var storage = storageAPIFactory({adapter: 'memdown'});
+  var usersStore = storage.getGlobalStore('users');
+  var credentialsStore = storage.getGlobalStore('users_credentials');
+
+  this.backend = new DefaultAuthBackend(usersStore, credentialsStore);
+
   return cb();
+
 };
 
-exports.createUser = function(test) {
-  var user = this.users.create();
-  this.users.validate(user, function(errs) {
-    test.ifError(errs);
-    test.done();
-  });
-};
+defaultBackend.registerThenAuthenticate = function(test) {
 
-exports.createUser = function(test) {
-  var user = this.users.create();
-  this.users.validate(user, function(errs) {
-    test.ifError(errs);
-    test.done();
-  });
-};
+  var backend = this.backend;
 
-exports.findById = function(test) {
+  var username = 'foo@bar.com';
+  var password = 'foobar';
 
-  var users = this.users;
+  var user = new User();
 
-  // Create new user
-  var user = users.create();
-
-  // Save it
-  users.save(user, function(err) {
+  backend.register(username, password, user.toJSON(), function(err) {
 
     test.ifError(err);
 
-    // Get user Id
-    var userId = user.id;
+    backend.authenticate(username, password, function(err, userUid) {
 
-    // Try to fetch it from store
-    users.findById(userId, function(err, storedUser) {
       test.ifError(err);
-      test.equals(user.nickname, storedUser.nickname, 'Local & stored user should have the same nickname !');
-      test.done();
+
+      test.equal(
+        user.get('uid'), userUid,
+        'Users should have the same UID !'
+      );
+
+      return test.done();
+
     });
 
   });
 
+
 };
 
-exports.findByNickname = function(test) {
+defaultBackend.changePassword = function(test) {
 
-  var users = this.users;
+  var backend = this.backend;
 
-  // Create new user
-  var user = users.create();
+  var username = 'foo@bar.com';
+  var oldPassword = 'foobar';
+  var newPassword = 'baz';
 
-  // Save it
-  users.save(user, function(err) {
+  var user = new User();
+
+  backend.register(username, oldPassword, user.toJSON(), onUserRegistered);
+
+  function onUserRegistered(err) {
+    test.ifError(err);
+    backend.changePassword(
+      username, newPassword,
+      onCredentialsChanged
+    );
+  }
+
+  function onCredentialsChanged(err) {
+    test.ifError(err);
+    backend.authenticate(username, newPassword, onUserAuthenticated);
+  }
+
+  function onUserAuthenticated(err, userUid) {
 
     test.ifError(err);
 
-    // Get user Id
-    var userNickname = user.nickname;
+    test.equal(
+      user.get('uid'), userUid,
+      'Users should have the same UID !'
+    );
 
-    // Try to fetch it from store
-    users.findByNickname(userNickname, function(err, storedUser) {
-      test.ifError(err);
-      test.equals(user.nickname, storedUser.nickname, 'Local & stored user should have the same nickname !');
-      test.done();
-    });
+    return test.done();
 
-  });
+  }
 
 };
