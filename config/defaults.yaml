@@ -26,3 +26,5 @@ storage:
 
 log:
   level: info
+
+theme: ~ # The path to the theme
