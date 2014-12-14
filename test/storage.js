@@ -1,3 +1,4 @@
+/* jshint node:true */
 var apiFactory = require('../lib/api/storage/api');
 
 // Set up test environment
@@ -12,7 +13,11 @@ function testSimpleReadWrite(test, store) {
     test.ifError(err);
     store.get(key, function(err, obj) {
       test.ifError(err);
-      test.equals(obj.hello, 'world', 'Object should have a property hello === "world" !');
+      test.equals(
+        obj.hello,
+        'world',
+        'Object should have a property hello === "world" !'
+      );
       test.done();
     });
   });

@@ -1,5 +1,5 @@
+/* jshint node:true */
 var RPC = require('../lib/common/rpc');
-var Message = require('../lib/common/messages').Message;
 
 // Basic test group
 var basic = exports.basic = {};

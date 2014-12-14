@@ -1,3 +1,4 @@
+/* jshint node:true */
 var Messenger = require('../lib/common/messenger');
 var Message = require('../lib/common/messages').Message;
 
