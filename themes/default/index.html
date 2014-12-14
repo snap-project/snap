@@ -7,24 +7,20 @@
     <title>SNAP!</title>
   </head>
   <body>
-    <div id="app-container"></div>
+    <%= themeHelpers.appFrame() %>
     <div id="snap-bar">
       <a href="#/" ontouchstart="supervisor.loadApp()" class="bar-button"><img src="img/home.svg" /></a>
     </div>
     <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
     <script type="text/javascript" src="bower_components/fastclick/lib/fastclick.js"></script>
     <script type="text/javascript" src="bower_components/nprogress/nprogress.js"></script>
-    <script type="text/javascript" src="rpc/primus.js"></script>
-    <script type="text/javascript" src="scripts/supervisor.js"></script>
-    <script type="text/javascript" src="scripts/plugins.js"></script>
-    <script type="text/javascript" src="scripts/bootstrap.js"></script>
+    <%= themeHelpers.requiredScripts() %>
     <script type="text/javascript">
       $(function() {
-        FastClick.attach(document.body);
         supervisor.on('start-working', NProgress.start);
         supervisor.on('stop-working', NProgress.done);
         supervisor.loadApp(supervisor.getCurrentApp());
-      });
+      }());
     </script>
   </body>
 </html>
