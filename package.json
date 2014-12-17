@@ -22,7 +22,7 @@
     "grunt-jsdoc": "~0.5.1"
   },
   "dependencies": {
-    "armature": "0.0.2",
+    "armature": "git+https://github.com/bornholm/armature#develop",
     "async": "~0.2.10",
     "browserchannel": "^2.0.0",
     "browserify-middleware": "~2.2.0",
