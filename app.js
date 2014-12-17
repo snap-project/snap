@@ -1,3 +1,4 @@
+/* jshint node: true */
 var Snap = require('snap-core').Snap;
 
 var app = new Snap();
