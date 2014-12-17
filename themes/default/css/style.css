@@ -38,7 +38,7 @@ html, body {
   background-color: transparent;
 }
 
-#app-container iframe {
+#app-container > iframe {
   width: 100%;
   height: 100%;
 }
