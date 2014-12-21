@@ -50,8 +50,10 @@ module.exports = function(grunt) {
       snapFiles.push({src: 'package.json', dest: destPath});
 
       // Add main files, licence, & config
-      snapFiles.push({src: ['index.html', 'app.js', 'config/defaults.yaml', 'LICENSE'], dest: destPath});
-
+      snapFiles.push({
+        src: ['index.html', 'app.js', 'config/defaults.yaml', 'LICENSE'],
+        dest: destPath}
+      );
 
     }
   });
@@ -87,7 +89,7 @@ module.exports = function(grunt) {
         files: snapFiles,
         options: {
           noProcess: ['**','!package.json'],
-          process: function(content, srcPath) {
+          process: function() {
             var pkg = _.merge(PKG, PKG_OVERWRITE);
             return JSON.stringify(pkg, null, 2);
           }
@@ -98,7 +100,10 @@ module.exports = function(grunt) {
   });
 
   grunt.registerTask('snap:run',  ['download', 'run']);
-  grunt.registerTask('snap:build',  ['download', 'clean:build', 'build', 'copy:build']);
+  grunt.registerTask(
+    'snap:build',
+    ['download', 'clean:build', 'build', 'copy:build']
+  );
   grunt.registerTask('default', ['snap:run']);
 
   grunt.loadNpmTasks('grunt-contrib-clean');

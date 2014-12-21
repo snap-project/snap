@@ -12,11 +12,14 @@ logs
 results
 themes/*
 
-npm-debug.log
 node_modules
+bower_components
 
 node-webkit
 build
 data
 apps
 libudev.so.0
+doc
+themes/*
+!themes/default

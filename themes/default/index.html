@@ -1,0 +1,26 @@
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" type="text/css" href="bower_components/nprogress/nprogress.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="icon" type="image/png" href="img/logo_128.png">
+    <title>SNAP!</title>
+  </head>
+  <body>
+    <%= themeHelpers.appFrame() %>
+    <div id="snap-bar">
+      <a href="#/" ontouchstart="supervisor.loadApp()" class="bar-button"><img src="img/home.svg" /></a>
+    </div>
+    <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="bower_components/fastclick/lib/fastclick.js"></script>
+    <script type="text/javascript" src="bower_components/nprogress/nprogress.js"></script>
+    <%= themeHelpers.requiredScripts() %>
+    <script type="text/javascript">
+      $(function() {
+        supervisor.on('start-working', NProgress.start);
+        supervisor.on('stop-working', NProgress.done);
+        supervisor.loadApp(supervisor.getCurrentApp());
+      }());
+    </script>
+  </body>
+</html>
