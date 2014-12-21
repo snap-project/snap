@@ -7,9 +7,9 @@ module.exports = function(grunt) {
   var NW_VERSION = '0.10.4';
   var BUILD_DIR = 'build';
   var BUILD_TARGETS = {
-    linux_ia32: true,
+    linux_ia32: false,
     linux_x64: true,
-    win: true,
+    win: false,
     osx: false
   };
   var PKG = grunt.file.readJSON('package.json');
@@ -36,6 +36,12 @@ module.exports = function(grunt) {
       }
       var dirName = PKG.name + '-' + PKG.version + '-' + platform + '-' + arch;
       var destPath = path.join(BUILD_DIR, dirName + '/');
+
+      // Add lib
+      snapFiles.push({src: 'lib/**', dest: destPath});
+
+      // Add themes
+      snapFiles.push({src: 'themes/**', dest: destPath});
 
       // Add apps to build
       snapFiles.push({src: 'apps/**', dest: destPath});
