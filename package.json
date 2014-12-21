@@ -4,7 +4,7 @@
   "description": "SNAP ====",
   "main": "index.html",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node_modules/nodeunit/bin/nodeunit test"
   },
   "repository": {
     "type": "git",
@@ -15,8 +15,18 @@
   "bugs": {
     "url": "https://github.com/snap-project/snap/issues"
   },
+  "window": {
+    "show": true,
+    "toolbar": false,
+    "position": "center",
+    "title": "SNAP!",
+    "icon": "./node_modules/snap-core/public/img/logo_128.png"
+  },
   "devDependencies": {
     "grunt": "0.4.1",
+    "grunt-contrib-jshint": "~0.7.1",
+    "nodeunit": "~0.8.2",
+    "grunt-jsdoc": "~0.5.1",
     "async": "~0.2.9",
     "lodash": "~2.4.1",
     "grunt-contrib-copy": "^0.5.0",
@@ -24,13 +34,35 @@
     "grunt-nw": "git+https://github.com/snap-project/grunt-nw.git#develop"
   },
   "dependencies": {
-    "snap-core": "git+https://github.com/snap-project/snap-core.git#develop"
-  },
-  "window": {
-    "show": true,
-    "toolbar": false,
-    "position": "center",
-    "title": "SNAP!",
-    "icon": "./node_modules/snap-core/public/img/logo_128.png"
+    "armature": "git+https://github.com/bornholm/armature#develop",
+    "async": "~0.2.10",
+    "browserchannel": "^2.0.0",
+    "browserify-middleware": "~2.2.0",
+    "bunyan": "^1.1.3",
+    "consolidate": "^0.10.0",
+    "cookie-parser": "^1.3.3",
+    "cookie-session": "^1.0.2",
+    "cors": "~2.1.1",
+    "errorhandler": "^1.2.2",
+    "express": "^4.9.7",
+    "express-session": "^1.9.1",
+    "faye-websocket": "^0.8.1",
+    "js-yaml": "~2.1.3",
+    "jsonschema": "^1.0.0",
+    "level-queryengine": "^3.0.1",
+    "levelup": "~0.18.2",
+    "lodash": "~2.2.1",
+    "memdown": "~0.6.0",
+    "mkdirp": "~0.3.5",
+    "nconf": "~0.6.8",
+    "nedbDOWN": "git+https://github.com/snap-project/nedbDOWN.git",
+    "node-uuid": "~1.4.1",
+    "path-engine": "^1.0.1",
+    "primus": "^2.4.6",
+    "schematics": "git+https://github.com/snap-project/schematics",
+    "semi-static": "0.0.5",
+    "serve-static": "^1.7.0",
+    "sift": "^0.1.0",
+    "through": "^2.3.4"
   }
 }

@@ -1,5 +1,4 @@
-# <img src="https://raw.githubusercontent.com/snap-project/snap-core/develop/public/img/logo.svg" height="64px" alt="SNAP! logo" /> SNAP!
-
+# <img src="./themes/default/img/logo.svg" height="128px" alt="SNAP! logo" /> SNAP!
 **S**imple **N**omad **A**pplication **P**ortal
 
 ## Nightly Builds
@@ -34,5 +33,3 @@ See [node-webkit documentation](https://github.com/rogerwang/node-webkit/wiki/Th
 . tasks/build-res/linux/libudev-linker.sh
 grunt run
 ```
-
-

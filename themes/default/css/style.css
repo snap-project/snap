@@ -1,0 +1,72 @@
+
+/* FastClick */
+a, input, button {
+    -ms-touch-action: none !important;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  background: rgb(242,245,246);
+  overflow: hidden;
+  background-image: url('../img/logo_transparent.svg'), -moz-radial-gradient(center, ellipse cover,  rgba(242,245,246,1) 0%, rgba(200,215,220,1) 100%);
+  background-image: url('../img/logo_transparent.svg'), -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,rgba(242,245,246,1)), color-stop(100%,rgba(200,215,220,1)));
+  background-image: url('../img/logo_transparent.svg'), -webkit-radial-gradient(center, ellipse cover,  rgba(242,245,246,1) 0%,rgba(200,215,220,1) 100%);
+  background-image: url('../img/logo_transparent.svg'), -o-radial-gradient(center, ellipse cover,  rgba(242,245,246,1) 0%,rgba(200,215,220,1) 100%);
+  background-image: url('../img/logo_transparent.svg'), -ms-radial-gradient(center, ellipse cover,  rgba(242,245,246,1) 0%,rgba(200,215,220,1) 100%);
+  background-image: url('../img/logo_transparent.svg'), radial-gradient(ellipse at center,  rgba(242,245,246,1) 0%,rgba(200,215,220,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f2f5f6', endColorstr='#c8d7dc',GradientType=1 );
+  background-repeat: no-repeat;
+  background-size: 200px, cover;
+  background-position: right bottom, 0;
+}
+
+#app-container {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  border: none;
+  padding-bottom: 40px;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  z-index: 0;
+  background-color: transparent;
+}
+
+#app-container > iframe {
+  width: 100%;
+  height: 100%;
+}
+
+#snap-bar {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  height: 40px;
+  background-color: #333;
+  padding: 0 10px;
+}
+
+.bar-button {
+  cursor: pointer;
+  -webkit-transition: all 250ms ease;
+  -moz-transition: all 250ms ease;
+  -ms-transition: all 250ms ease;
+  -o-transition: all 250ms ease;
+  transition: all 250ms ease;
+  margin-top: 5px;
+  display: inline-block;
+}
+
+.bar-button img {
+  height: 30px;
+}
