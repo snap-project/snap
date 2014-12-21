@@ -4,12 +4,12 @@ var path = require('path');
 
 module.exports = function(grunt) {
 
-  var NW_VERSION = '0.10.4';
+  var NW_VERSION = '0.11.3';
   var BUILD_DIR = 'build';
   var BUILD_TARGETS = {
-    linux_ia32: false,
+    linux_ia32: true,
     linux_x64: true,
-    win: false,
+    win: true,
     osx: false
   };
   var PKG = grunt.file.readJSON('package.json');
