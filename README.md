@@ -1,4 +1,4 @@
-# <img src="./themes/default/img/logo_128.png" height="128px" alt="SNAP! logo" /> SNAP!
+# <img src="./themes/default/img/logo_128.png" height="64px" alt="SNAP! logo" /> SNAP!
 **S**imple **N**omad **A**pplication **P**ortal
 
 ## Nightly Builds
