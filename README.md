@@ -14,6 +14,9 @@ cd snap
 git clone https://github.com/Bornholm/snap-apps.git apps
 sudo npm install grunt-cli -g
 npm install
+cd themes/default
+bower install
+cd ../..
 grunt
 ```
 **'Headless' mode**
