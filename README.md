@@ -1,4 +1,4 @@
-# <img src="./themes/default/img/logo.svg" height="128px" alt="SNAP! logo" /> SNAP!
+# <img src="./themes/default/img/logo_128.png" height="64px" alt="SNAP! logo" /> SNAP!
 **S**imple **N**omad **A**pplication **P**ortal
 
 ## Nightly Builds
@@ -14,7 +14,10 @@ cd snap
 git clone https://github.com/Bornholm/snap-apps.git apps
 sudo npm install grunt-cli -g
 npm install
-grunt run
+cd themes/default
+bower install
+cd ../..
+grunt
 ```
 **'Headless' mode**
 
