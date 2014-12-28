@@ -10,16 +10,15 @@ lib-cov
 pids
 logs
 results
-themes/*
 
 node_modules
 bower_components
 
-node-webkit
-build
-data
-apps
+/node-webkit
+/build
+/data
+/apps
 libudev.so.0
 doc
-themes/*
-!themes/default
+/themes/*
+!/themes/default
