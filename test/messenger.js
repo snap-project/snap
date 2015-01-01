@@ -1,6 +1,6 @@
 /* jshint node:true */
 var Messenger = require('../lib/common/messenger');
-var Message = require('../lib/common/messages').Message;
+var Message = require('../lib/common/message');
 
 // Basic test group
 var basic = exports.basic = {};
@@ -12,7 +12,8 @@ basic.sendMessage = function(test) {
 
   m1.pipe(m2);
 
-  var message = new Message({foo: 'bar'});
+  var message = new Message();
+  message.setPayload({foo: 'bar'});
 
   m2.once('message', function(message) {
     test.equal(
