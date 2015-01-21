@@ -1,10 +1,16 @@
 # <img src="./themes/default/img/logo_128.png" height="64px" alt="SNAP! logo" /> SNAP!
-**S**imple **N**omad **A**pplication **P**ortal
+
+[![Code Climate](https://codeclimate.com/github/snap-project/snap/badges/gpa.svg)](https://codeclimate.com/github/snap-project/snap)
+
+## What is SNAP! ?
+
+SNAP! is the acronym for **S**imple **N**omad **A**pplication **P**ortal.
+
+More to come.
 
 ## Nightly Builds
 
 [From 'develop' branch](http://snap.lookingfora.name/)
-
 
 ## For developers & testers
 
