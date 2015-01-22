@@ -15,13 +15,13 @@ server:
 
 storage:
   global:
-    adapter: 'nedbDOWN'
+    adapter: 'medeadown'
     dir: data
   plugins:
-    adapter: 'nedbDOWN'
+    adapter: 'medeadown'
     dir: data/plugins
   apps:
-    adapter: 'nedbDOWN'
+    adapter: 'medeadown'
     dir: *apps_dir
 
 log:
