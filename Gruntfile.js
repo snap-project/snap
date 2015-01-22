@@ -72,6 +72,7 @@ module.exports = function(grunt) {
     'apps/chat',
     'apps/home',
     'apps/user_profile',
+    'apps/todos',
     'themes/default'
   ];
 
