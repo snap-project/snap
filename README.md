@@ -18,7 +18,7 @@ More to come.
 git clone https://github.com/snap-project/snap
 cd snap
 # Download default apps
-git clone https://github.com/snap-projec/snap-apps.git apps
+git clone https://github.com/snap-project/snap-apps.git apps
 # Install development tools
 sudo npm install grunt-cli bower bunyan -g
 # Install SNAP! dependencies
