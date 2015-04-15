@@ -7,7 +7,8 @@
     "test": "node_modules/nodeunit/bin/nodeunit test",
     "build": "node_modules/.bin/grunt snap:build",
     "start": "node_modules/.bin/grunt snap:run | node_modules/.bin/bunyan",
-    "install-apps-deps": "node_modules/.bin/grunt shell:install-apps-deps"
+    "install-apps-deps": "node_modules/.bin/grunt shell:install-apps-deps",
+    "jsdoc": "node_modules/.bin/jsdoc -c jsdoc.json lib"
   },
   "repository": {
     "type": "git",
@@ -36,6 +37,7 @@
     "grunt-jsdoc": "~0.5.1",
     "grunt-nw": "git+https://github.com/snap-project/grunt-nw.git#develop",
     "grunt-shell": "^1.1.1",
+    "jsdoc": "^3.3.0-beta3",
     "nodeunit": "~0.8.2"
   },
   "dependencies": {
