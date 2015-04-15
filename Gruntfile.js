@@ -4,7 +4,7 @@ var path = require('path');
 
 module.exports = function(grunt) {
 
-  var NW_VERSION = '0.11.6';
+  var NW_VERSION = '0.12.1';
   var BUILD_DIR = 'build';
   var BUILD_TARGETS = {
     linux_ia32: true,
@@ -116,7 +116,7 @@ module.exports = function(grunt) {
     },
 
     shell: {
-      'bower-install': {
+      'install-apps-deps': {
         command: _.map(bowerApps, function(appPath) {
           return 'cd "'+path.join(process.cwd(), appPath)+'"; bower install';
         }).join('&&')
@@ -134,7 +134,7 @@ module.exports = function(grunt) {
   grunt.registerTask('snap:run',  ['download', 'run']);
   grunt.registerTask(
     'snap:build',
-    ['download', 'shell:bower-install', 'clean:build', 'build', 'copy:build']
+    [ 'download', 'shell:install-apps-deps', 'clean:build', 'build', 'copy:build' ]
   );
   grunt.registerTask('default', ['snap:run']);
 

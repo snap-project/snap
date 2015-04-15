@@ -19,14 +19,10 @@ git clone https://github.com/snap-project/snap
 cd snap
 # Download default apps
 git clone https://github.com/snap-project/snap-apps.git apps
-# Install development tools
-sudo npm install grunt-cli bower bunyan -g
 # Install SNAP! dependencies
 npm install
 # Install default apps & theme dependencies
-grunt shell:bower-install
-# Run in node-webkit
-grunt | bunyan
-# Or run as NodeJS app
-node app | bunyan
+npm run install-apps-deps
+# Run
+npm start
 ```

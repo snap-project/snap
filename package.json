@@ -4,7 +4,10 @@
   "description": "SNAP ====",
   "main": "index.html",
   "scripts": {
-    "test": "node_modules/nodeunit/bin/nodeunit test"
+    "test": "node_modules/nodeunit/bin/nodeunit test",
+    "build": "node_modules/.bin/grunt snap:build",
+    "start": "node_modules/.bin/grunt snap:run | node_modules/.bin/bunyan",
+    "install-apps-deps": "node_modules/.bin/grunt shell:install-apps-deps"
   },
   "repository": {
     "type": "git",
@@ -24,7 +27,9 @@
   },
   "devDependencies": {
     "async": "~0.2.9",
+    "bower": "^1.4.1",
     "grunt": "0.4.1",
+    "grunt-cli": "^0.1.13",
     "grunt-contrib-clean": "^0.5.0",
     "grunt-contrib-copy": "^0.5.0",
     "grunt-contrib-jshint": "~0.7.1",
